@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Classic Knitwear Sweater",
+    "description": "Warm and cozy knitwear sweater",
+    "price": "$40",
+    "imageUrl": "/images/img2.png",
+    "buyLink": "https://google.com/",
+    "category": "topwear",
+    "subcategory": "knitwear"
+  },
+  {
+    "id": 2,
+    "title": "Slim Fit Chinos",
+    "description": "Comfortable and stylish chinos",
+    "price": "$50",
+    "imageUrl": "/images/img2.png",
+    "buyLink": "https://google.com/",
+    "category": "bottomwear",
+    "subcategory": "chinos"
+  },
+  {
+    "id": 3,
+    "title": "Casual Shorts",
+    "description": "Light and breathable shorts for summer",
+    "price": "$30",
+    "imageUrl": "/images/img2.png",
+    "buyLink": "https://google.com/",
+    "category": "bottomwear",
+    "subcategory": "shorts"
+  },
+  {
+    "id": 4,
+    "title": "Formal Shirt",
+    "description": "Perfect shirt for office wear",
+    "price": "$35",
+    "imageUrl": "/images/img2.png",
+    "buyLink": "https://google.com/",
+    "category": "topwear",
+    "subcategory": "shirts"
+  },
+  {
+    "id": 5,
+    "title": "Graphic T-Shirt",
+    "description": "100% cotton comfortable t-shirt",
+    "price": "$25",
+    "imageUrl": "/images/img2.png",
+    "buyLink": "https://google.com/",
+    "category": "topwear",
+    "subcategory": "tshirts"
+  },
+  {
+    "id": 6,
+    "title": "Denim Jacket",
+    "description": "Stylish and durable denim jacket",
+    "price": "$60",
+    "imageUrl": "/images/img2.png",
+    "buyLink": "https://google.com/",
+    "category": "topwear",
+    "subcategory": "jackets"
+  },
+  {
+    "id": 7,
+    "title": "Cozy Sweatpants",
+    "description": "Perfect sweatpants for lounging",
+    "price": "$45",
+    "imageUrl": "/images/img2.png",
+    "buyLink": "https://google.com/",
+    "category": "bottomwear",
+    "subcategory": "sweatpants"
+  },
+  {
+    "id": 8,
+    "title": "Classic Trousers",
+    "description": "Elegant trousers for formal occasions",
+    "price": "$55",
+    "imageUrl": "/images/img2.png",
+    "buyLink": "https://google.com/",
+    "category": "bottomwear",
+    "subcategory": "trousers"
+  }
+]

@@ -1,7 +1,8 @@
 import React from 'react';
 import Navbar from '../components/navbar';
 import Carousel from '../components/carousel';
-import Section from '../components/section';
+import Section from '../components/sectionbottomwear';
+import Section2 from '../components/sectiontopwear';
 import Footer from '../components/footer';
 
 const Home = () => {
@@ -9,8 +10,8 @@ const Home = () => {
     <div style={{background:"beige"}}>
       <Navbar />
       <Carousel/>
-      <Section/>
-      <div style={{height:"200px"}}></div>
+      <Section2/>
+      <div style={{height:"100px"}}></div>
       <Section/>
       <Footer/>
     </div>

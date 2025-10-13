@@ -11,6 +11,7 @@ import Trousers from './pages/trousers';
 import Sweatpants from './pages/sweatpantsandjoggers';
 import Shorts from './pages/shorts';
 import Chinos from './pages/chinosandjeans';
+import Searchresults from './pages/searchresults';
 
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
             <Route path="/sweatpantsandjoggers" element={<Sweatpants />} />
             <Route path="/shorts" element={<Shorts />} />
             <Route path="/chinosandjeans" element={<Chinos />} />
+            <Route path="/searchresults" element={<Searchresults />} />
+
             {/* Add more routes here */}
           </Routes>
         </Router>

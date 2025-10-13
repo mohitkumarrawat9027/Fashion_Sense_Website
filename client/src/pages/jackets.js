@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../components/navbar';
-import Section from '../components/section';
+import Section from '../components/sectionjackets';
 import Footer from '../components/footer';
 
 const Jackets = () => {

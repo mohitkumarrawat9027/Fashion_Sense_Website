@@ -5,9 +5,23 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
-function navbar() {
+function NavBar() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // You can optionally check for empty search:
+    if (searchTerm.trim()) {
+      navigate('/searchresults'); // ✅ Redirects to /searchresults page
+    }
+  };
   return (
+
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
         <Navbar.Brand href="/">Duxter Clothing</Navbar.Brand>
@@ -35,19 +49,23 @@ function navbar() {
     <NavDropdown.Item as={Link} to="/shorts">Shorts</NavDropdown.Item>
   </NavDropdown>
 </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
+<Form className="d-flex" onSubmit={handleSubmit}>
+      <Form.Control
+        type="search"
+        placeholder="Search"
+        className="me-2"
+        aria-label="Search"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <Button variant="outline-success" type="submit" as={Link} to="/searchresults">
+        Search
+      </Button>
+    </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
 }
 
-export default navbar;
+export default NavBar;
