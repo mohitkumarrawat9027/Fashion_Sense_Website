@@ -14,17 +14,9 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 
 app.use(cors({
-  origin: function(origin, callback) {
-    // allow requests with no origin (like Postman)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) === -1) {
-      const msg = 'CORS policy does not allow access from this origin.';
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  }
+  origin: 'https://fashionsensewebsite.netlify.app',
+  credentials: true
 }));
-
 app.use(express.json());
 
 // MongoDB connection string (replace with yours)
