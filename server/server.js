@@ -1,17 +1,19 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const Product = require('./models/Product');
 
 const app = express();
-const PORT = 5001;
+const PORT = process.env.PORT || 5001;
+
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
 // MongoDB connection string (replace with yours)
-const mongoURI = 'mongodb://localhost:27017/dressing_sense';
+const mongoURI = process.env.MONGO_URI;
 
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
@@ -19,6 +21,16 @@ mongoose.connect(mongoURI, {
 })
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.error('MongoDB connection error:', err));
+
+// let isConnected=false;
+//  async function connectToMongoDB(){
+//   await mongoose.connect(mongoURI, {
+//       useNewUrlParser: true,
+//       useUnifiedTopology: true,
+//     })
+//     .then(() => console.log('MongoDB connected'))
+//     .catch(err => console.error('MongoDB connection error:', err));
+//  }
 
 // GET /products?category=topwear&subcategory=tshirts
 app.get('/products', async (req, res) => {
@@ -35,17 +47,18 @@ app.get('/products', async (req, res) => {
   }
 });
 
-// POST /products
-app.post('/products', async (req, res) => {
-  try {
-    const newProduct = new Product(req.body);
-    const savedProduct = await newProduct.save();
-    res.status(201).json(savedProduct);
-  } catch (err) {
-    res.status(400).json({ message: 'Invalid data' });
-  }
-});
+// // POST /products
+// app.post('/products', async (req, res) => {
+//   try {
+//     const newProduct = new Product(req.body);
+//     const savedProduct = await newProduct.save();
+//     res.status(201).json(savedProduct);
+//   } catch (err) {
+//     res.status(400).json({ message: 'Invalid data' });
+//   }
+// });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
+

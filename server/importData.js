@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Product = require('./models/Product');
 const products = require('./Product_data/products.json'); // your JSON file with all products
 
-const mongoURI = 'mongodb://localhost:27017/dressing_sense';
+const mongoURI = 'mongodb+srv://mkr9027:vxqgpg60hj9Oui7O@maindatabase.8d185kr.mongodb.net/dressing_sense';
 
 mongoose.connect(mongoURI)
   .then(async () => {
