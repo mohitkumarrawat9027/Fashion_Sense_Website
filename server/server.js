@@ -1,16 +1,28 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
 const Product = require('./models/Product');
+
+const cors = require('cors');
+
+const allowedOrigins = ['https://fashionsensewebsite.netlify.app'];
+
+
+
 
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-
-// Middleware
 app.use(cors({
-  origin: '*'
+  origin: function(origin, callback) {
+    // allow requests with no origin (like Postman)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'CORS policy does not allow access from this origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  }
 }));
 
 app.use(express.json());
