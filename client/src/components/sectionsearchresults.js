@@ -10,7 +10,7 @@ function Section() {
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('https://fashion-sense-website-991cq296d-mohit-kumar-rawats-projects.vercel.app/products')
+    axios.get('https://fashion-sense-website.vercel.app/products')
       .then(response => {
         const sorted = response.data.sort((a, b) => b.id - a.id);
         const latest = sorted;

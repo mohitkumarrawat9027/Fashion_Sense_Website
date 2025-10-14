@@ -7,7 +7,7 @@ function Section() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('https://fashion-sense-website-991cq296d-mohit-kumar-rawats-projects.vercel.app/products', { params: { category: 'topwear', subcategory:'jackets'} })
+    axios.get('https://fashion-sense-website.vercel.app/products', { params: { category: 'topwear', subcategory:'jackets'} })
       .then(response => {
         console.log('Filtered products:', response.data);
         setProducts(response.data);
