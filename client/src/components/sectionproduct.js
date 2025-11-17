@@ -3,11 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 
-function Section() {
+function Section({category, subcategory}) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('https://fashion-sense-website.vercel.app/products', { params: { category: 'topwear', subcategory:'jackets'} })
+    axios.get('https://fashion-sense-website.vercel.app/products', { params: {category, subcategory} })
       .then(response => {
         console.log('Filtered products:', response.data);
         setProducts(response.data);
@@ -15,7 +15,7 @@ function Section() {
       .catch(error => {
         console.error('Error fetching products:', error);
       });
-  }, []); // runs once on mount
+  }, [category, subcategory]); // runs once on mount
 
   return (
     <section style={{
@@ -28,7 +28,7 @@ function Section() {
       marginTop: "30px",
       marginBottom: "30px"
     }}>
-      <h1>Jackets</h1>
+      <h1>Sweatpants and Joggers</h1>
       <div style={{
         height: 'auto',
         display: 'flex',
