@@ -7,6 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useAuth } from '../AuthContext';
 
 function NavBar() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -20,6 +21,8 @@ function NavBar() {
       navigate('/searchresults'); // ✅ Redirects to /searchresults page
     }
   };
+
+  const {logout}=useAuth;
   return (
 
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -62,6 +65,7 @@ function NavBar() {
         Search
       </Button>
     </Form>
+    <Button onClick={logout}>Logout</Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>

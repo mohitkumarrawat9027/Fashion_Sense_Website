@@ -28,7 +28,7 @@ function Section({category, subcategory}) {
       marginTop: "30px",
       marginBottom: "30px"
     }}>
-      <h1>Sweatpants and Joggers</h1>
+      <h1>{subcategory}</h1>
       <div style={{
         height: 'auto',
         display: 'flex',
