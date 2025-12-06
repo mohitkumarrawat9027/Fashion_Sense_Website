@@ -14,14 +14,16 @@ app.use(cors({
   credentials: true
 }));
 
-app.use("/",require("./router/routes"));
-
-// MongoDB connection string (replace with yours)
 const mongoURI = process.env.MONGO_URI;
 
 mongoose.connect(mongoURI)
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.error('MongoDB connection error:', err));
+
+
+app.use("/",require("./router/routes"));
+
+// MongoDB connection string (replace with yours)
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
