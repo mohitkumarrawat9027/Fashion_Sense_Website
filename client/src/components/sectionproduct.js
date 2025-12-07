@@ -10,7 +10,7 @@ function Section({category, subcategory}) {
     axios.get('https://fashion-sense-website.vercel.app/products', { params: {category, subcategory} })
       .then(response => {
         console.log('Filtered products:', response.data);
-        setProducts(response.data);
+        setProducts(response.data.data || response.data || []);
       })
       .catch(error => {
         console.error('Error fetching products:', error);

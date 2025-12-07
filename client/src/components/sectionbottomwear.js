@@ -11,7 +11,7 @@ function Section() {
     axios.get('https://fashion-sense-website.vercel.app/products', { params: { category: 'bottomwear'} })
       .then(response => {
         console.log('Filtered products:', response.data);
-        setProducts(response.data);
+        setProducts(response.data.data || response.data || []);
       })
       .catch(error => {
         console.error('Error fetching products:', error);

@@ -12,7 +12,7 @@ function Section() {
   useEffect(() => {
     axios.get('https://fashion-sense-website.vercel.app/products')
       .then(response => {
-        const sorted = response.data.sort((a, b) => b.id - a.id);
+        const sorted = response.data.data.sort((a, b) => b.id - a.id);
         const latest = sorted;
         setProducts(latest);
         setAllProducts(sorted); // ✅ Keep all products for searching

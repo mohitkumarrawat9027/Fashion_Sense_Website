@@ -22,7 +22,7 @@ function NavBar() {
     }
   };
 
-  const {logout}=useAuth;
+  const {logout}=useAuth();
   return (
 
     <Navbar expand="lg" className="bg-body-tertiary">
