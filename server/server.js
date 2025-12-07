@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5001;
 
 app.use(express.json());
 app.use(cors({
-  origin: 'https://fashionsensewebsite.netlify.app/',
+  origin: 'https://fashionsensewebsite.netlify.app',
   credentials: true
 }));
 
