@@ -16,10 +16,13 @@ app.use(cors({
 
 const mongoURI = process.env.MONGO_URI;
 
-mongoose.connect(mongoURI)
+const mongodbconnect=async()=>{
+  await mongoose.connect(mongoURI)
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.error('MongoDB connection error:', err));
+}
 
+mongodbconnect();
 
 app.use("/",require("./router/routes"));
 
