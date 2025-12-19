@@ -1,4 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
+import './styling/Carousel.css';
 export const img3 =
   "https://image.hm.com/content/dam/global_campaigns/season_02/men/ms42e7/MS42E7-16x9-top-outerwear-edit.jpg?imwidth=4800";
 
@@ -10,29 +11,40 @@ export const img1 =
 
 function carousel() {
   return (
-    <Carousel>
-      <Carousel.Item interval={700} style={{height:"93.2vh"}}>
-        <img src={img1} alt="this is an" style={ {objectFit: "cover", height: "100%", width: "100%" }}/>
-        <Carousel.Caption>
-          <h3>Discover Your Style</h3>
-          <p>Elevate your everyday with clean, modern essentials.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item interval={700} style={{height:"93.2vh"}}>
-      <img src={img2} alt="this is an" style={{objectFit: "cover",height: "100%", width: "100%" }} />
-        <Carousel.Caption>
-          <h3>New Season Arrivals</h3>
-          <p>Fresh silhouettes crafted for comfort and confidence.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item interval={700} style={{height:"93.2vh"}}>
-      <img src={img3} alt="this is an" style={{objectFit: "cover",height: "100%", width: "100%" }} />
-        <Carousel.Caption>
-          <h3>Wear What Moves You</h3>
-          <p>Bold designs made to stand out wherever you go.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+    <Carousel controls indicators interval={700} className="luxury-carousel">
+  <Carousel.Item style={{ height: "93.2vh" }}>
+    <img className="carousel-img" src={img1} alt="Discover Your Style" />
+    <div className="overlay" />
+    <Carousel.Caption className="luxury-caption">
+      <span className="eyebrow">NEW COLLECTION</span>
+      <h1>Discover Your Style</h1>
+      <p>Elevate your everyday with clean, modern essentials.</p>
+      <button className="luxury-btn">Shop Now</button>
+    </Carousel.Caption>
+  </Carousel.Item>
+
+  <Carousel.Item style={{ height: "93.2vh" }}>
+    <img className="carousel-img" src={img2} alt="New Season Arrivals" />
+    <div className="overlay" />
+    <Carousel.Caption className="luxury-caption">
+      <span className="eyebrow">SPRING / SUMMER</span>
+      <h1>New Season Arrivals</h1>
+      <p>Fresh silhouettes crafted for comfort and confidence.</p>
+      <button className="luxury-btn">Explore</button>
+    </Carousel.Caption>
+  </Carousel.Item>
+
+  <Carousel.Item style={{ height: "93.2vh" }}>
+    <img className="carousel-img" src={img3} alt="Wear What Moves You" />
+    <div className="overlay" />
+    <Carousel.Caption className="luxury-caption">
+      <span className="eyebrow">EDITOR’S PICK</span>
+      <h1>Wear What Moves You</h1>
+      <p>Bold designs made to stand out wherever you go.</p>
+      <button className="luxury-btn">View Lookbook</button>
+    </Carousel.Caption>
+  </Carousel.Item>
+</Carousel>
   );
 }
 

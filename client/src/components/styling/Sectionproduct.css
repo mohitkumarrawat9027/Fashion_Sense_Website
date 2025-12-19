@@ -1,0 +1,117 @@
+/* Section */
+.luxury-collection {
+    margin: 100px 0;
+    text-align: center;
+  }
+  
+  /* Title */
+  .collection-title {
+    font-family: "Playfair Display", serif;
+    font-size: 48px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 80px;
+  }
+  
+  /* Grid */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 64px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  
+  /* Card */
+  .luxury-card {
+    cursor: pointer;
+    transition: transform 0.4s ease;
+  }
+  
+  .luxury-card:hover {
+    transform: translateY(-6px);
+  }
+  
+  /* Image */
+  .image-wrap {
+    overflow: hidden;
+  }
+  
+  .image-wrap img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+  
+  .luxury-card:hover img {
+    transform: scale(1.06);
+  }
+  
+  /* Info */
+  .card-info {
+    text-align: left;
+    margin-top: 18px;
+  }
+  
+  .product-title {
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  
+  .description {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 10px;
+  }
+  
+  /* Price */
+  .price {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  
+  /* Link */
+  .luxury-link {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #000;
+    text-decoration: none;
+    position: relative;
+  }
+  
+  .luxury-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 1px;
+    background: #000;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  
+  .luxury-link:hover::after {
+    transform: scaleX(1);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .collection-title {
+      font-size: 36px;
+      margin-bottom: 48px;
+    }
+  
+    .image-wrap img {
+      height: 320px;
+    }
+  }
+  
