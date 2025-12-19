@@ -25,50 +25,74 @@ function NavBar() {
   const {logout}=useAuth();
   return (
 
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container fluid>
-        <Navbar.Brand href="/">Duxter Clothing</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
+    <Navbar expand="lg" className="bg-light">
+  <Container fluid>
+    <Navbar.Brand 
+      href="/" 
+      style={{ fontWeight: "600", fontSize: "20px", letterSpacing: "1px" }}
+    >
+      Duxter Clothing
+    </Navbar.Brand>
 
-<Nav
-  className="me-auto my-2 my-lg-0"
-  style={{ maxHeight: '100px' }}
-  navbarScroll
->
-  <Nav.Link as={Link} to="/">Home</Nav.Link>
+    <Navbar.Toggle aria-controls="navbarScroll" />
 
-  <NavDropdown title="TopWear" id="navbarScrollingDropdown">
-    <NavDropdown.Item as={Link} to="/shirts">Shirts</NavDropdown.Item>
-    <NavDropdown.Item as={Link} to="/tshirts">Tshirts</NavDropdown.Item>
-    <NavDropdown.Item as={Link} to="/knitwear">Knitwear</NavDropdown.Item>
-    <NavDropdown.Item as={Link} to="/jackets">Jackets</NavDropdown.Item>
-  </NavDropdown>
+    <Navbar.Collapse id="navbarScroll">
+      <Nav
+        className="me-auto my-2 my-lg-0"
+        style={{ maxHeight: "100px" }}
+        navbarScroll
+      >
+        <Nav.Link as={Link} to="/" style={{ fontWeight: "500" }}>
+          Home
+        </Nav.Link>
 
-  <NavDropdown title="BottomWear" id="navbarScrollingDropdown">
-    <NavDropdown.Item as={Link} to="/trousers">Trousers</NavDropdown.Item>
-    <NavDropdown.Item as={Link} to="/sweatpantsandjoggers">SweatPants & Joggers</NavDropdown.Item>
-    <NavDropdown.Item as={Link} to="/chinosandjeans">Chinos & Jeans</NavDropdown.Item>
-    <NavDropdown.Item as={Link} to="/shorts">Shorts</NavDropdown.Item>
-  </NavDropdown>
-</Nav>
-<Form className="d-flex" onSubmit={handleSubmit}>
-      <Form.Control
-        type="search"
-        placeholder="Search"
-        className="me-2"
-        aria-label="Search"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      <Button variant="outline-success" type="submit" as={Link} to="/searchresults">
-        Search
+        <NavDropdown title="TopWear" id="navbarScrollingDropdown">
+          <NavDropdown.Item as={Link} to="/shirts">Shirts</NavDropdown.Item>
+          <NavDropdown.Item as={Link} to="/tshirts">Tshirts</NavDropdown.Item>
+          <NavDropdown.Item as={Link} to="/knitwear">Knitwear</NavDropdown.Item>
+          <NavDropdown.Item as={Link} to="/jackets">Jackets</NavDropdown.Item>
+        </NavDropdown>
+
+        <NavDropdown title="BottomWear" id="navbarScrollingDropdown2">
+          <NavDropdown.Item as={Link} to="/trousers">Trousers</NavDropdown.Item>
+          <NavDropdown.Item as={Link} to="/sweatpantsandjoggers">
+            SweatPants & Joggers
+          </NavDropdown.Item>
+          <NavDropdown.Item as={Link} to="/chinosandjeans">Chinos & Jeans</NavDropdown.Item>
+          <NavDropdown.Item as={Link} to="/shorts">Shorts</NavDropdown.Item>
+        </NavDropdown>
+      </Nav>
+
+      <Form className="d-flex" onSubmit={handleSubmit} style={{ marginRight: "10px" }}>
+        <Form.Control
+          type="search"
+          placeholder="Search"
+          className="me-2"
+          aria-label="Search"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          style={{ width: "200px" }}
+        />
+        <Button 
+          variant="outline-dark" 
+          type="submit" 
+          as={Link} 
+          to="/searchresults"
+        >
+          Search
+        </Button>
+      </Form>
+
+      <Button 
+        variant="dark" 
+        onClick={logout}
+        style={{ marginLeft: "10px" }}
+      >
+        Logout
       </Button>
-    </Form>
-    <Button onClick={logout}>Logout</Button>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    </Navbar.Collapse>
+  </Container>
+</Navbar>
   );
 }
 

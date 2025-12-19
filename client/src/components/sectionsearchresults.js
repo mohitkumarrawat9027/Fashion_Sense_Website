@@ -37,56 +37,90 @@ function Section() {
   }, [searchTerm, allProducts]);
 
   return (
-    <section style={{
-      height: "auto",
-      display: 'flex',
-      flexDirection: "column",
-      gap: "3rem",
+    <section
+  style={{
+    margin: "40px 0",
+    textAlign: "center",
+    display: "flex",
+    flexDirection: "column",
+    gap: "2.5rem",
+  }}
+>
+  <h1 style={{ fontSize: "32px", fontWeight: "500", marginBottom: "20px" }}>
+    Search
+  </h1>
+
+  {/* 🔍 Search Box */}
+  <Form.Control
+    type="text"
+    placeholder="Search for a product..."
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+    style={{
+      maxWidth: "400px",
+      margin: "0 auto",
+      padding: "10px 12px",
+      fontSize: "1rem",
+      borderRadius: "4px",
+      border: "1px solid #ccc",
+    }}
+  />
+
+  <div
+    style={{
+      display: "flex",
+      flexWrap: "wrap",
       justifyContent: "center",
-      textAlign: "center",
-      marginTop: "30px",
-      marginBottom: "30px"
-    }}>
-      <h1>Search</h1>
+      gap: "2.5rem",
+      marginTop: "20px",
+    }}
+  >
+    {products.length > 0 ? (
+      products.map((product) => (
+        <Card
+          key={product.id}
+          style={{
+            width: "18rem",
+            border: "none",
+            textAlign: "left",
+          }}
+        >
+          <Card.Img
+            variant="top"
+            src={product.imageUrl}
+            style={{ height: "320px", objectFit: "cover" }}
+          />
 
-      {/* 🔍 Search Box */}
-      <Form.Control
-        type="text"
-        placeholder="Search for a product..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        style={{
-          maxWidth: "400px",
-          margin: "0 auto",
-          padding: "10px",
-          fontSize: "1rem"
-        }}
-      />
+          <Card.Body>
+            <Card.Title style={{ fontSize: "16px", marginBottom: "6px" }}>
+              {product.title}
+            </Card.Title>
 
-      <div style={{
-        height: 'auto',
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: "3rem",
-        justifyContent: "center"
-      }}>
-        {products.length > 0 ? (
-          products.map(product => (
-            <Card key={product.id} style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={product.imageUrl} />
-              <Card.Body>
-                <Card.Title>{product.title}</Card.Title>
-                <Card.Text>{product.description}</Card.Text>
-                <Card.Text><strong>{product.price}</strong></Card.Text>
-                <Button variant="primary" href={product.buyLink} target="_blank">Buy Now</Button>
-              </Card.Body>
-            </Card>
-          ))
-        ) : (
-          <p>No products found.</p>
-        )}
-      </div>
-    </section>
+            <Card.Text style={{ fontSize: "14px", color: "#666", marginBottom: "6px" }}>
+              {product.description}
+            </Card.Text>
+
+            <Card.Text style={{ fontWeight: "500", marginBottom: "8px" }}>
+              {product.price}
+            </Card.Text>
+
+            <Button
+              variant="dark"
+              href={product.buyLink}
+              target="_blank"
+              style={{ fontSize: "14px" }}
+            >
+              Buy Now
+            </Button>
+          </Card.Body>
+        </Card>
+      ))
+    ) : (
+      <p style={{ fontSize: "16px", color: "#555" }}>No products found.</p>
+    )}
+  </div>
+</section>
+
   );
 }
 

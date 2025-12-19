@@ -30,23 +30,77 @@ export default function Register(){
   
 }
 return (
-    <div 
+  <div
+  style={{
+    backgroundImage: `url(${img2})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    minHeight: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "5rem 0",
+  }}
+>
+  <section
+    style={{
+      backgroundColor: "rgba(255, 255, 255, 0.85)",
+      padding: "3rem 2rem",
+      borderRadius: "8px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: "1.5rem",
+      minWidth: "320px",
+    }}
+  >
+    <h1 style={{ fontSize: "28px", fontWeight: "600" }}>Register</h1>
+
+    <input
+      type="email"
+      placeholder="Email"
+      onChange={(e) => setEmail(e.target.value)}
       style={{
-        backgroundImage:`url(${img2})`,
-        backgroundSize:"cover",
-        backgroundPosition:"center"
+        width: "100%",
+        maxWidth: "300px",
+        padding: "10px",
+        borderRadius: "4px",
+        border: "1px solid #ccc",
+        fontSize: "14px",
+      }}
+    />
+
+    <input
+      type="password"
+      placeholder="Password"
+      onChange={(e) => setPassword(e.target.value)}
+      style={{
+        width: "100%",
+        maxWidth: "300px",
+        padding: "10px",
+        borderRadius: "4px",
+        border: "1px solid #ccc",
+        fontSize: "14px",
+      }}
+    />
+
+    <button
+      onClick={handleLogin}
+      style={{
+        width: "120px",
+        padding: "10px",
+        borderRadius: "4px",
+        border: "none",
+        backgroundColor: "#333",
+        color: "#fff",
+        fontWeight: "500",
+        cursor: "pointer",
       }}
     >
-      <section style={{padding:"17rem",paddingTop:"17rem",paddingBottom:"5rem",alignItems:"center",display:'flex',flexDirection:'column',gap:'2rem'}}>
-      <h1>Login</h1>
-        <input placeholder="Email" onChange={e => setEmail(e.target.value)} style={{width:"20rem",height:"25px"}}/><br />
-        <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} style={{width:"20rem",height:"25px"}}/><br />
-
-        <button onClick={handleLogin} style={{ width:"5rem", height:"25px" }}>
-          Sign Up
-        </button>
-      </section>
-    </div>
+      Sign Up
+    </button>
+  </section>
+</div>
   );
 
 };

@@ -29,25 +29,76 @@ export default function Login(){
   }  
 }
 return (
-    <div 
+  <div
+  style={{
+    minHeight: "100vh",
+    backgroundImage: `url(${img2})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
+  <section
+    style={{
+      backgroundColor: "rgba(255,255,255,0.9)",
+      padding: "4rem",
+      textAlign: "center",
+      display: "flex",
+      flexDirection: "column",
+      gap: "1.2rem",
+      width: "320px",
+    }}
+  >
+    <h1 style={{ marginBottom: "1rem" }}>Login</h1>
+
+    <input
+      placeholder="Email"
+      onChange={(e) => setEmail(e.target.value)}
       style={{
-        backgroundImage:`url(${img2})`,
-        backgroundSize:"cover",
-        backgroundPosition:"center"
+        height: "36px",
+        padding: "0 10px",
+        fontSize: "14px",
+      }}
+    />
+
+    <input
+      type="password"
+      placeholder="Password"
+      onChange={(e) => setPassword(e.target.value)}
+      style={{
+        height: "36px",
+        padding: "0 10px",
+        fontSize: "14px",
+      }}
+    />
+
+    <button
+      onClick={handleLogin}
+      style={{
+        height: "36px",
+        background: "#000",
+        color: "#fff",
+        border: "none",
+        cursor: "pointer",
+        marginTop: "10px",
       }}
     >
-      <section style={{padding:"17rem",paddingTop:"17rem",paddingBottom:"5rem",alignItems:"center",display:'flex',flexDirection:'column',gap:'2rem'}}>
-      <h1>Login</h1>
-        <input placeholder="Email" onChange={e => setEmail(e.target.value)} style={{width:"20rem",height:"25px"}}/><br />
-        <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} style={{width:"20rem",height:"25px"}}/><br />
+      Sign In
+    </button>
 
-        <button onClick={handleLogin} style={{ width:"5rem", height:"25px" }}>
-          Sign In
-        </button>
-        <h2>Not a user?</h2>
-         <Link to="/register">Sign Up</Link>
-      </section>
-    </div>
+    <p style={{ fontSize: "14px", marginTop: "10px" }}>
+      Not a user?{" "}
+      <Link
+        to="/register"
+        style={{ color: "#000", textDecoration: "underline" }}
+      >
+        Sign Up
+      </Link>
+    </p>
+  </section>
+</div>
   );
 
 };

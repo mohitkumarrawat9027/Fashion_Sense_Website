@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import axios from 'axios';
-import './styling/Sectionproduct.css';
 
 function Section({category, subcategory}) {
   const [products, setProducts] = useState([]);
@@ -17,39 +18,79 @@ function Section({category, subcategory}) {
   }, [category, subcategory]); // runs once on mount
 
   return (
-    <section className="luxury-collection">
-    <h1 className="collection-title">{subcategory}</h1>
-
-    <div className="product-grid">
+    <section
+    style={{
+      margin: "40px 0",
+      textAlign: "center",
+    }}
+  >
+    <h1
+      style={{
+        fontSize: "32px",
+        fontWeight: "500",
+        marginBottom: "40px",
+      }}
+    >
+      {subcategory.toUpperCase()}
+    </h1>
+  
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        gap: "3rem",
+      }}
+    >
       {products.map((product) => (
-        <article key={product._id} className="luxury-card">
-          <div className="image-wrap">
-            <img
-              src={product.imageUrl}
-              alt={product.title}
-              loading="lazy"
-            />
-          </div>
-
-          <div className="card-info">
-            <h3 className="product-title">{product.title}</h3>
-            <p className="description">{product.description}</p>
-            <span className="price">{product.price}</span>
-
-            <a
+        <Card
+          key={product._id}
+          style={{
+            width: "18rem",
+            border: "none",
+          }}
+        >
+          <Card.Img
+            variant="top"
+            src={product.imageUrl}
+            style={{
+              height: "320px",
+              objectFit: "cover",
+            }}
+          />
+  
+          <Card.Body style={{ textAlign: "left" }}>
+            <Card.Title style={{ fontSize: "16px" }}>
+              {product.title}
+            </Card.Title>
+  
+            <Card.Text
+              style={{
+                fontSize: "14px",
+                color: "#666",
+              }}
+            >
+              {product.description}
+            </Card.Text>
+  
+            <Card.Text style={{ fontWeight: "500" }}>
+              {product.price}
+            </Card.Text>
+  
+            <Button
+              variant="dark"
               href={product.buyLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="luxury-link"
+              size="sm"
             >
               Buy Now
-            </a>
-          </div>
-        </article>
+            </Button>
+          </Card.Body>
+        </Card>
       ))}
     </div>
-  </section>
-  
+  </section>  
   );
 }
 

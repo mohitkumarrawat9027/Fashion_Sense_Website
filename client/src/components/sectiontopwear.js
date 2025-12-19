@@ -19,37 +19,79 @@ function Section() {
   }, []); // runs once on mount
 
   return (
-    <section style={{
-      height: "auto",
-      display: 'flex',
-      flexDirection: "column",
-      gap: "5rem",
+    <section
+  style={{
+    margin: "40px 0",
+    textAlign: "center",
+    display: "flex",
+    flexDirection: "column",
+    gap: "3rem",
+  }}
+>
+  <h1
+    style={{
+      fontSize: "32px",
+      fontWeight: "500",
+      marginBottom: "20px",
+    }}
+  >
+    Latest TopWear
+  </h1>
+
+  <div
+    style={{
+      display: "flex",
+      flexWrap: "wrap",
       justifyContent: "center",
-      textAlign: "center",
-      marginTop: "30px",
-      marginBottom: "30px"
-    }}>
-      <h1>Latest TopWear</h1>
-      <div style={{
-        height: 'auto',
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: "3rem",
-        justifyContent: "center"
-      }}>
-        {products.map(product => (
-          <Card key={product._id} style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={product.imageUrl} />
-            <Card.Body>
-              <Card.Title>{product.title}</Card.Title>
-              <Card.Text>{product.description}</Card.Text>
-              <Card.Text><strong>{product.price}</strong></Card.Text>
-              <Button variant="primary" href={product.buyLink} target="_blank" rel="noopener noreferrer">Buy Now</Button>
-            </Card.Body>
-          </Card>
-        ))}
-      </div>
-    </section>
+      gap: "2.5rem",
+    }}
+  >
+    {products.map((product) => (
+      <Card
+        key={product._id}
+        style={{
+          width: "18rem",
+          border: "none",
+          textAlign: "left",
+        }}
+      >
+        <Card.Img
+          variant="top"
+          src={product.imageUrl}
+          style={{
+            height: "320px",
+            objectFit: "cover",
+          }}
+        />
+
+        <Card.Body>
+          <Card.Title style={{ fontSize: "16px", marginBottom: "6px" }}>
+            {product.title}
+          </Card.Title>
+
+          <Card.Text style={{ fontSize: "14px", color: "#666", marginBottom: "6px" }}>
+            {product.description}
+          </Card.Text>
+
+          <Card.Text style={{ fontWeight: "500", marginBottom: "8px" }}>
+            {product.price}
+          </Card.Text>
+
+          <Button
+            variant="dark"
+            href={product.buyLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            size="sm"
+          >
+            Buy Now
+          </Button>
+        </Card.Body>
+      </Card>
+    ))}
+  </div>
+</section>
+
   );
 }
 
